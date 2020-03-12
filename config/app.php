@@ -1,5 +1,7 @@
 <?php
 
+use Spatie\Permission\PermissionServiceProvider;
+
 return [
 
     /*

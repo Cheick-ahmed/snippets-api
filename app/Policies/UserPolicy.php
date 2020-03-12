@@ -9,7 +9,12 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
-    public function as (User $authenticatedUser, User $user)
+    public function show(User $user)
+    {
+        return $user->role() === 'admin';
+    }
+
+    public function as(User $authenticatedUser, User $user)
     {
         return $authenticatedUser->id === $user->id;
     }

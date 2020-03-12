@@ -18,7 +18,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'email', 'password',
+        'name', 'username', 'email', 'password', 'role'
     ];
 
     /**
@@ -61,6 +61,11 @@ class User extends Authenticatable implements JWTSubject
         }
 
         $this->attributes['password'] = Hash::make($password);
+    }
+
+    public function role()
+    {
+        return $this->role ?? 'user';
     }
 
     public function snippets()

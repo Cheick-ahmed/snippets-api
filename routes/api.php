@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
-
     Route::get('me', 'MeController');
-
     Route::post('login', 'LoginController');
-
     Route::post('logout', 'LogoutController');
-
     Route::post('register', 'RegisterController');
 });
 
@@ -39,30 +34,27 @@ Route::group(['prefix' => 'users/{user}', 'namespace' => 'Users'], function () {
     Route::get('snippets', 'SnippetController@index');
 });
 
+
 Route::group(['prefix' => 'snippets', 'namespace' => 'Snippet'], function () {
 
     /**
      * Snippet
      */
-
     Route::get('', 'SnippetController@index');
-
     Route::post('', 'SnippetController@store');
-
     Route::get('{snippet}', 'SnippetController@show');
-
     Route::patch('{snippet}', 'SnippetController@update');
-
     Route::delete('{snippet}', 'SnippetController@destroy');
 
     /**
      * Step
      */
-
     Route::post('{snippet}/steps', 'StepController@store');
-
     Route::patch('{snippet}/steps/{step}', 'StepController@update');
-
     Route::delete('{snippet}/steps/{step}', 'StepController@destroy');
 
+});
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+    Route::resource('users', 'UserController');
 });
