@@ -20,6 +20,7 @@ class SnippetResource extends JsonResource
             'title' => $this->title ?: '',
             'steps_count' => $this->steps->count(),
             'is_public' => (bool) $this->is_public,
+            'updated_at' => $this->updated_at->toDateTimeString(),
             'steps' => [
                 'data' => StepResource::collection($this->whenLoaded('steps'))
             ],
