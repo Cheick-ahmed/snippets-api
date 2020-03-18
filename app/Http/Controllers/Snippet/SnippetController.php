@@ -21,7 +21,7 @@ class SnippetController extends Controller
     public function index()
     {
         return SnippetResource::collection(
-            Snippet::latest()->public()->limit(5)->get()
+            Snippet::latest()->public()->limit(12)->get()
         );
     }
 
