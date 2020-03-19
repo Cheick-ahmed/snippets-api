@@ -19,7 +19,7 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'username' => $this->username,
             'email' => $this->email,
-            'join_at' => $this->created_at->toDateTimeString()
+            'join_at' =>  isset($this->created_at) ? $this->created_at->toDateTimeString() : '2020-03-11 21:00:00'
         ];
     }
 }
