@@ -17,7 +17,7 @@ class PublicUserResource extends JsonResource
         return [
             'name' => $this->name,
             'username' => $this->username,
-            'joined_at' => $this->created_at->toDateTimeString()
+            'joined_at' => $this->created_at->toDateTimeString() ?? '2020-03-11 21:00:00'
         ];
     }
 }
