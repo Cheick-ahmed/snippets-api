@@ -57,4 +57,5 @@ Route::group(['prefix' => 'snippets', 'namespace' => 'Snippet'], function () {
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::resource('users', 'UserController');
+    Route::resource('snippets', 'SnippetController');
 });

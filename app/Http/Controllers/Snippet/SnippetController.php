@@ -30,13 +30,11 @@ class SnippetController extends Controller
         $snippet = $request->user()->snippets()->create($request->only('title', 'body'));
 
         return new SnippetResource($snippet);
-
     }
 
     public function show(Snippet $snippet)
     {
        $this->authorize('show', $snippet);
-
         return new SnippetResource($snippet->load(['steps', 'user']));
     }
 
